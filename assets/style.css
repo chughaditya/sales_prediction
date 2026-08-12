@@ -1,0 +1,321 @@
+/* ===================================================================
+   AI Sales Prediction Pro - Custom Styling
+   Defines CSS variables for both light and dark themes. The active
+   theme is applied by toggling the `data-theme` attribute on <body>
+   via a small script injected from app.py.
+=================================================================== */
+
+:root {
+    --brand-primary: #4A6CF7;
+    --brand-primary-dark: #364FC7;
+    --brand-accent: #17C3B2;
+    --brand-warning: #FFB020;
+    --brand-danger: #FF6B6B;
+    --card-bg-light: #FFFFFF;
+    --card-bg-dark: #1E2130;
+    --text-light: #1B1F3B;
+    --text-dark: #F5F7FB;
+    --border-light: #E7E9F5;
+    --border-dark: #33374F;
+}
+
+/* KPI Card */
+.kpi-card {
+    border-radius: 20px;
+    padding: 20px 22px;
+    background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 50%, #2563EB 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(79,70,229,.3);
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(255,255,255,.08);
+}
+.kpi-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(79,70,229,.45); }
+.kpi-card.accent { background: linear-gradient(135deg, #17C3B2 0%, #0E9B8B 100%); box-shadow: 0 6px 18px rgba(23,195,178,.25);}
+.kpi-card.warning { background: linear-gradient(135deg, #FFB020 0%, #E08E00 100%); box-shadow: 0 6px 18px rgba(255,176,32,.25);}
+.kpi-card.danger { background: linear-gradient(135deg, #FF6B6B 0%, #D64545 100%); box-shadow: 0 6px 18px rgba(255,107,107,.25);}
+
+.kpi-trend { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+.kpi-trend-up { background: rgba(16,185,129,.2); color: #34D399; }
+.kpi-trend-down { background: rgba(239,68,68,.2); color: #F87171; }
+
+.kpi-label {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+.kpi-value {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.kpi-sub {
+    font-size: 12px;
+    opacity: 0.85;
+    margin-top: 4px;
+}
+
+/* Section header */
+.section-header {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    color: var(--brand-primary-dark);
+}
+.section-subtext {
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 18px;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #EEF1FF;
+    color: var(--brand-primary-dark);
+    margin-right: 6px;
+}
+.badge.best { background: #E6FBF6; color: #0E9B8B; }
+
+/* Hero banner on Home page */
+.hero-banner {
+    border-radius: 24px;
+    padding: 36px 40px;
+    background: linear-gradient(120deg, #7C3AED 0%, #4F46E5 50%, #2563EB 100%);
+    color: white;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 32px rgba(79,70,229,.28);
+}
+.hero-title { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+.hero-subtitle { font-size: 15px; opacity: 0.92; max-width: 700px; }
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    color: #9CA3AF;
+    font-size: 12px;
+    padding: 20px 0 6px 0;
+}
+
+/* ===================================================================
+   Home Dashboard v2 (Aurora hero, floating stat cards, quick actions,
+   activity timeline, model status)
+=================================================================== */
+
+/* Aurora animated background hero */
+.aurora-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: 44px 44px 40px 44px;
+    margin-bottom: 22px;
+    background: radial-gradient(circle at 20% 20%, rgba(124,58,237,.55), transparent 55%),
+                radial-gradient(circle at 80% 0%, rgba(37,99,235,.5), transparent 50%),
+                radial-gradient(circle at 60% 90%, rgba(23,195,178,.4), transparent 55%),
+                linear-gradient(120deg, #1B1035 0%, #241a4a 45%, #10192f 100%);
+    box-shadow: 0 20px 50px rgba(79,70,229,.32);
+    color: white;
+}
+.aurora-hero::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: conic-gradient(from 0deg, rgba(124,58,237,.25), rgba(37,99,235,.2), rgba(23,195,178,.22), rgba(124,58,237,.25));
+    animation: auroraSpin 18s linear infinite;
+    opacity: .55;
+    z-index: 0;
+}
+.aurora-hero > * { position: relative; z-index: 1; }
+@keyframes auroraSpin { to { transform: rotate(360deg); } }
+
+.aurora-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.22);
+    margin-bottom: 14px;
+    backdrop-filter: blur(6px);
+}
+.aurora-title { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.15; }
+.aurora-subtitle { font-size: 15px; opacity: .88; max-width: 640px; margin-bottom: 22px; }
+
+/* Live stat counters inside the hero */
+.aurora-stats { display: flex; gap: 34px; flex-wrap: wrap; margin-top: 6px; }
+.aurora-stat-value { font-size: 30px; font-weight: 800; line-height: 1.1; }
+.aurora-stat-label { font-size: 12px; opacity: .75; text-transform: uppercase; letter-spacing: .5px; margin-top: 3px; }
+
+/* Floating glass stat/quick-action cards */
+.floating-card {
+    border-radius: 20px;
+    padding: 18px 20px;
+    background: var(--card-bg, #FFFFFF);
+    border: 1px solid var(--border-light);
+    transition: transform .2s ease, box-shadow .2s ease;
+    height: 100%;
+}
+.floating-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(79,70,229,.18); }
+.qa-icon { font-size: 22px; margin-bottom: 8px; }
+.qa-title { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
+.qa-sub { font-size: 12px; opacity: .65; }
+
+/* Recent activity timeline */
+.activity-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+.activity-item:last-child { border-bottom: none; }
+.activity-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED, #2563EB);
+    margin-top: 6px; flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(124,58,237,.15);
+}
+.activity-text { font-size: 13.5px; }
+.activity-time { font-size: 11.5px; opacity: .6; margin-top: 1px; }
+
+/* Model status rows */
+.model-status-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px; border-radius: 14px;
+    background: var(--card-bg, #F7F8FC);
+    border: 1px solid var(--border-light);
+    margin-bottom: 8px;
+}
+.model-status-name { font-weight: 600; font-size: 13.5px; }
+.model-status-pill {
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+}
+.status-ready { background: rgba(16,185,129,.15); color: #10B981; }
+.status-pending { background: rgba(245,158,11,.15); color: #F59E0B; }
+
+}
+
+/* Card wrapper for general content blocks */
+.info-card {
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 18px 20px;
+    background: var(--card-bg-light);
+}
+
+/* ===================================================================
+   Premium Prediction Page Components (glassmorphism)
+   Theme-neutral base; the dark-theme block in app.py adds blur,
+   gradients, and stronger visual polish on top of this.
+=================================================================== */
+
+/* Module hero banner (top of each Prediction tab) */
+.glass-hero {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border-radius: 22px;
+    padding: 26px 30px;
+    color: white;
+    margin-bottom: 18px;
+    box-shadow: 0 10px 32px rgba(79,70,229,.28);
+    animation: fadeSlideIn .5s ease;
+}
+.glass-hero-icon { font-size: 40px; line-height: 1; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
+.glass-hero-title { font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+.glass-hero-subtitle { font-size: 14px; opacity: .92; max-width: 640px; }
+
+/* General glass card wrapper for form sections */
+.glass-card {
+    border-radius: 22px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    background: var(--card-bg, #FFFFFF);
+    border: 1px solid var(--border-light);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+/* Metric tiles (KPI row under a prediction result) */
+.metric-tile {
+    border-radius: 18px;
+    padding: 16px 18px;
+    background: var(--card-bg, #FFFFFF);
+    border: 1px solid var(--border-light);
+    text-align: left;
+    transition: transform .18s ease, box-shadow .18s ease;
+    animation: fadeSlideIn .45s ease;
+}
+.metric-tile:hover { transform: translateY(-3px); }
+.metric-tile-icon { font-size: 20px; margin-bottom: 6px; }
+.metric-tile-label { font-size: 11.5px; text-transform: uppercase; letter-spacing: .5px; opacity: .75; margin-bottom: 4px; }
+.metric-tile-value { font-size: 22px; font-weight: 800; margin-bottom: 2px; }
+.metric-tile-sub { font-size: 11.5px; opacity: .65; }
+
+/* Result headline (the big number after prediction) */
+.result-headline {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 50%, #2563EB 100%);
+    color: white;
+    margin-bottom: 18px;
+    box-shadow: 0 14px 36px rgba(79,70,229,.35);
+    animation: popIn .4s cubic-bezier(.34,1.56,.64,1);
+}
+.result-headline-label { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; opacity: .85; margin-bottom: 6px; }
+.result-headline-value { font-size: 42px; font-weight: 800; line-height: 1.1; }
+.result-headline-sub { font-size: 13.5px; opacity: .9; margin-top: 6px; }
+
+/* AI Insights card */
+.insight-card {
+    border-radius: 18px;
+    padding: 18px 22px;
+    background: var(--card-bg, #FFFFFF);
+    border: 1px solid var(--border-light);
+    margin-bottom: 10px;
+}
+.insight-card-title { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+.insight-list { margin: 0; padding-left: 18px; }
+.insight-list li { font-size: 13.5px; line-height: 1.9; opacity: .92; }
+
+/* Risk badge pill */
+.risk-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+/* Loading pulse (shown briefly while a prediction runs) */
+.loading-pulse {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    background: var(--card-bg, #F5F7FB);
+    font-size: 14px;
+    font-weight: 600;
+}
+.loading-spinner {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 3px solid rgba(124,58,237,.25);
+    border-top-color: #7C3AED;
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes popIn { 0% { opacity: 0; transform: scale(.92); } 100% { opacity: 1; transform: scale(1); } }

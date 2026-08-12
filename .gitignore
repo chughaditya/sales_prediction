@@ -1,0 +1,26 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Runtime-generated data (kept out of version control, folders preserved via .gitkeep)
+database/*.db
+logs/*.log
+models/*.pkl
+reports/*.pdf
+exports/*.csv
+exports/*.xlsx
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
