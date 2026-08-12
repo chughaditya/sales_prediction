@@ -1,7 +1,8 @@
 # 📊 Sales Prediction & Analytics Platform
 
-An AI-powered Sales Prediction and Analytics Platform built with Python and Streamlit.  
-The application provides interactive dashboards, sales forecasting, analytics, AI-powered insights, what-if analysis, and reporting features through a modern web interface.
+A complete Sales Prediction and Analytics Platform built with Python and Streamlit.
+
+The application provides interactive dashboards, sales forecasting, analytics, what-if analysis, prediction history, and reporting features through a modern web interface.
 
 ---
 
@@ -11,7 +12,7 @@ The application provides interactive dashboards, sales forecasting, analytics, A
 - Modern interactive landing page
 - Project overview
 - Key statistics and highlights
-- Quick navigation to major modules
+- Quick navigation
 
 ### 📊 Analytics Dashboard
 - Sales KPIs
@@ -20,26 +21,26 @@ The application provides interactive dashboards, sales forecasting, analytics, A
 - Historical performance analysis
 - Forecast visualization
 
-### 🤖 AI Sales Prediction
+### 📈 Sales Prediction
 - Company Sales Prediction
 - Retail Sales Prediction
 - House Price Prediction
-- Batch Prediction support
-- AI-powered forecasting workflows
+- Batch Prediction
+- Forecasting workflows
 
-### 🧠 AI Insights
-- AI-generated business insights
-- SHAP-based model explanations
+### 🧠 Insights & Analysis
+- Business insights
+- Model explanations
 - What-If Analysis
 - Risk Assessment
 - Business recommendations
 
-### 📈 Advanced Analytics
+### 📊 Advanced Analytics
 - Interactive Plotly visualizations
 - Trend analysis
 - Forecast analysis
 - Performance metrics
-- Data-driven business insights
+- Business performance insights
 
 ### 📄 Reports
 - Generate prediction reports
@@ -57,22 +58,22 @@ The application provides interactive dashboards, sales forecasting, analytics, A
 - Responsive layout
 - Interactive components
 - Clean navigation
-- Dark/modern visual design
+- Modern visual design
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Python**
-- **Streamlit**
-- **Scikit-learn**
-- **Pandas**
-- **NumPy**
-- **Plotly**
-- **Matplotlib**
-- **SHAP**
-- **Joblib**
-- **SQLite**
+- Python
+- Streamlit
+- Scikit-learn
+- Pandas
+- NumPy
+- Plotly
+- Matplotlib
+- SHAP
+- Joblib
+- SQLite
 
 ---
 
